@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Carrossel CSS</title>
+
+    <style>
+
+        :root {
+            --cor-principal: #1C1C1C   
+;
+            --cor-secundaria: #D3AF37 
+;
+            --cor-clara: #E6BE8A ;
+            --cor-escura: #000000;
+            --cor-branca: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--cor-clara);
+            color: var(--cor-escura);
+        }
+
+        header {
+            background-color: var(--cor-principal);
+            color: var(--cor-branca);
+            text-align: center;
+            padding: 30px;
+        }
+
+        main {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+
+        /* ESCONDE OS BOTÕES DE RADIO */
+
+        input[type="radio"] {
+            display: none;
+        }
+
+
+        /* ÁREA VISÍVEL DO CARROSSEL */
+
+        .carrossel {
+            overflow: hidden;
+
+            border: 5px solid var(--cor-principal);
+            border-radius: 15px;
+        }
+
+
+        /* CONJUNTO DOS SLIDES */
+
+        .slides {
+            display: flex;
+
+            width: 500%;
+
+            transition: transform 0.5s ease;
+        }
+
+
+        /* CADA SLIDE */
+
+        .slide {
+            width: 20%;
+            flex-shrink: 0;
+        }
+
+
+        .slide img {
+            width: 100%;
+            height: 450px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+
+        .slide figcaption {
+            background-color: var(--cor-principal);
+            color: white;
+
+            text-align: center;
+
+            padding: 15px;
+        }
+
+
+        /* MOVIMENTAÇÃO DOS SLIDES */
+
+        #slide1:checked ~ .carrossel .slides {
+            transform: translateX(0);
+        }
+
+        #slide2:checked ~ .carrossel .slides {
+            transform: translateX(-20%);
+        }
+
+        #slide3:checked ~ .carrossel .slides {
+            transform: translateX(-40%);
+        }
+
+        #slide4:checked ~ .carrossel .slides {
+            transform: translateX(-60%);
+        }
+
+        #slide5:checked ~ .carrossel .slides {
+            transform: translateX(-80%);
+        }
+
+
+        /* BOTÕES */
+
+        .botoes {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+
+        .botoes label {
+            width: 20px;
+            height: 20px;
+
+            background-color: var(--cor-secundaria);
+
+            border-radius: 50%;
+
+            cursor: pointer;
+        }
+
+
+        .botoes label:hover {
+            background-color: var(--cor-escura);
+        }
+
+
+        footer {
+            background-color: var(--cor-escura);
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+
+            margin-top: 40px;
+        }
+
+
+        /* CELULAR */
+
+        @media (max-width: 700px) {
+
+            .slide img {
+                height: 280px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <header>
+
+        <h1>Carros disponível no estoque</h1>
+    
+    </header>
+
+
+    <main>
+
+        <h2>Conheça nossos carros</h2>
+
+
+        <!-- BOTÕES INVISÍVEIS -->
+
+        <input type="radio" name="carrossel" id="slide1" checked>
+
+        <input type="radio" name="carrossel" id="slide2">
+
+        <input type="radio" name="carrossel" id="slide3">
+
+        <input type="radio" name="carrossel" id="slide4">
+
+        <input type="radio" name="carrossel" id="slide5">
+
+
+        <!-- CARROSSEL -->
+
+        <section class="carrossel">
+
+            <div class="slides">
+
+
+                <figure class="slide">
+
+                    <img
+                        src="https://www.autoo.com.br/fotos/2023/8/1280_960/bugatti_chiron_2023_8_10082023_75469_1280_960.jpg"
+                        alt="Bugatti"
+                    >
+
+                    <figcaption>
+                        Bugatti Chiron Valor: R$50 milhões.
+                    </figcaption>
+
+                </figure>
+
+
+                <figure class="slide">
+
+                    <img
+                        src="https://cdn.motor1.com/images/mgl/xqq24z/s1/novitec-ferrari-sf90-stradale-2022.webp"
+                        alt="Ferrari"
+                    >
+
+                    <figcaption>
+                        Ferrari SF90 Stradale: Entre R$ 4,5 milhões e R$ 5,5 milhões.
+                    </figcaption>
+
+                </figure>
+
+
+                <figure class="slide">
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYKTPFez7EUpjeGfePAxtZdt60wHNcRVq9Q7Ox_IJ3wg&s=10"
+                        alt="Porsche"
+                    >
+
+                    <figcaption>
+                        911 GT3 RS (2024) Valor:Entre R$ 3 milhões e R$ 4 milhões.
+                    </figcaption>
+
+                </figure>
+
+
+                <figure class="slide">
+
+                    <img
+                        src="https://cdn.motor1.com/images/mgl/W8MAAN/s1/bmw-m4-csl.jpg"
+                        alt="BMW"
+                    >
+
+                    <figcaption>
+                         BMW M4 CS 2025 Valor: Entre R$ 1.230.000 a R$ 1.400.000.
+                    </figcaption>
+
+                </figure>
+
+
+                <figure class="slide">
+
+                    <img
+                        src="https://hips.hearstapps.com/hmg-prod/images/2026-rolls-royce-phantom-pr-123-690cd211484fb.jpg?crop=0.553xw:0.554xh;0.106xw,0.344xh&resize=1200:*"
+                        alt="Rolls-Royce"
+                    >
+
+                    <figcaption>
+                        2026 Rolls-Royce Phantom: Valor entre  R$ 7,5 a R$ 8,5 milhões.
+                    </figcaption>
+
+                </figure>
+
+            </div>
+
+        </section>
+
+
+        <!-- BOTÕES VISÍVEIS -->
+
+        <div class="botoes">
+
+            <label for="slide1"></label>
+
+            <label for="slide2"></label>
+
+            <label for="slide3"></label>
+
+            <label for="slide4"></label>
+
+            <label for="slide5"></label>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <p>Desenvolvido para estudo de HTML e CSS</p>
+
+    </footer>
+
+</body>
+
+</html>
